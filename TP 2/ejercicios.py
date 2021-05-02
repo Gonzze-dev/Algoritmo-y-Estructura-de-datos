@@ -400,4 +400,156 @@ def ejercicio_22():
     print('\nTotal personas capturadas por Boba Fett: ', get_Total_Personas_Capturadas(obj_Bitacora_Nave_Boba_Pila))
     print('Total personas capturadas por Din Djarin: ', get_Total_Personas_Capturadas(obj_Bitacora_Nave_Din_Pila))
 
-ejercicio_22()
+#EJERCICIO 24
+
+#A FUNCIONES
+def get_Pos_Groot_And_Roket(obj_Pila):
+    obj_Aux_Pila = Pila()
+    indice = obj_Pila.tamanio() - 1
+    posicion_Groot = None
+    posicion_Roket = None
+
+    while((not obj_Pila.pila_vacia()) and ((posicion_Groot == None) or (posicion_Roket == None))):
+        obj_Aux_Pila.apilar(obj_Pila.desapilar())
+
+        if(obj_Aux_Pila.elemento_cima()[0] == 'Groot'):
+            posicion_Groot = indice
+        elif(obj_Aux_Pila.elemento_cima()[0] == 'Rocket Raccoon'):
+            posicion_Roket = indice
+        
+        indice -= 1
+    while(not obj_Aux_Pila.pila_vacia()):
+        obj_Pila.apilar(obj_Aux_Pila.desapilar())
+    
+    return posicion_Groot, posicion_Roket
+
+def get_mensaje_Posicion_De_Groot_And_Rocket(Vec_Posiciones):
+    mensaje_1 = None
+    mensaje_2 = None
+
+    if(Vec_Posiciones[0] != None):
+        mensaje_1 = 'Groot se encuentra en la posicion: ' + str(Vec_Posiciones[0])
+    else:
+         mensaje_1 = 'Groot no esta en la pila'
+    
+    if(Vec_Posiciones[1] != None):
+        mensaje_2 = 'Rocket Raccoon se encuentra en la posicion: ' + str(Vec_Posiciones[1])
+    else:
+        mensaje_2 = 'Rocket Raccoon no esta en la pila'
+
+    return (mensaje_1 + '\n' + mensaje_2)
+#B FUNCION
+def get_Personajes_Que_Aparecen_En_Mas_De_5_Peliculas_And_La_Cantidad(obj_Pila):
+    obj_Aux_Pila = Pila()
+    cant_peliculas = None
+    indice = 0
+    Vector = None
+    Mat = [[]]
+
+    while(not obj_Pila.pila_vacia()):
+        obj_Aux_Pila.apilar(obj_Pila.desapilar())
+        cant_peliculas = len(obj_Aux_Pila.elemento_cima())-1
+
+        if (cant_peliculas > 5):
+            Mat.insert(indice, (obj_Aux_Pila.elemento_cima()[0], cant_peliculas))
+            indice += 1
+    
+    while(not obj_Aux_Pila.pila_vacia()):
+        obj_Pila.apilar(obj_Aux_Pila.desapilar())
+    
+    return Mat
+
+#C FUNCIONES
+def get_Cantidad_Peliculas_En_La_Que_Aparece_Black_Widow(obj_Pila):
+    obj_Aux_Pila = Pila()
+    cant_peliculas = 0
+
+    while((not obj_Pila.pila_vacia()) and (obj_Pila.elemento_cima()[0] != 'Black Widow')):
+        obj_Aux_Pila.apilar(obj_Pila.desapilar())
+
+    if(obj_Pila.elemento_cima()[0] == 'Black Widow'):
+        cant_peliculas = len(obj_Pila.elemento_cima())-1
+
+    while(not obj_Aux_Pila.pila_vacia()):
+        obj_Pila.apilar(obj_Aux_Pila.desapilar())
+
+    return cant_peliculas
+
+def get_Mensaje_Black_Widow(cant_peliculas):
+    if (cant_peliculas > 0):
+        return 'Black Widow ha participado en: ' + str(cant_peliculas) + ' peliculas'
+    else:
+        return  'Black Widow no ha participado en ninguna pelicula'
+
+#D FUNCION
+def get_Nombres_Que_Empiezan_Con_C_D_And_G(obj_Pila):
+    obj_Aux_Pila = Pila()
+    indice = 0
+    Vector = []
+
+    while(not obj_Pila.pila_vacia()):
+        obj_Aux_Pila.apilar(obj_Pila.desapilar())
+
+        if (obj_Aux_Pila.elemento_cima()[0][0] in ['C','D','G']):
+            Vector.insert(indice, obj_Aux_Pila.elemento_cima()[0])
+            indice += 1
+
+    while(not obj_Aux_Pila.pila_vacia()):
+        obj_Pila.apilar(obj_Aux_Pila.desapilar())
+
+    return Vector
+
+def ejercicio_24():
+    Mat = None
+    Vector = None
+
+    obj_Personajes_Marvel_Pila = Pila()
+    # MCU = [['Black Widow', 'Avengers Confidential', 'Iron Man: Rise of Technovore', 'Avengers: Infinity War'],
+    #        ['Iron Man', 'Iron Man I', 'Iron Man II','Avengers Confidential', 'Iron Man: Rise of Technovore', 'The Invincible Iron Man', 'Avengers: Infinity War'],
+    #        ['Hulk', 'Avengers Confidential', 'Hulk vs Thor', 'Avengers: Infinity War'],
+    #        ['Hawkeye', 'Avengers Confidential'],
+    #        ['Thor', 'Hulk vs Thor', 'Avengers: Infinity War'],
+    #        ['Groot', 'Infinity War']
+    #        ['Rocket Raccoon', 'Infinity War']]
+
+    MCU = [['Black Widow', 1 , 3, 4 , 5, 2, 4],
+           ['Rocket Raccoon', 3, 7],
+           ['Iron Man', 1 , 3, 4 , 5, 2, 4, 7, 9],
+           ['Hulk', 9 ,3 , 4 ,6],
+           ['Hawkeye', 3],
+           ['Groot', 2],
+           ['Thor', 3, 4 , 2, 1]]
+    
+    for i in range(0, len(MCU)):
+        obj_Personajes_Marvel_Pila.apilar(MCU[i])
+    
+    #A
+    print('\nPosicion de Groot y Rocket en la pila\n')
+    print(get_mensaje_Posicion_De_Groot_And_Rocket(get_Pos_Groot_And_Roket(obj_Personajes_Marvel_Pila)))
+
+    #B
+    print('\nPersonajes que aparecen en mas de 5 peliculas')
+    Mat = get_Personajes_Que_Aparecen_En_Mas_De_5_Peliculas_And_La_Cantidad(obj_Personajes_Marvel_Pila)
+    
+    if ((len(Mat)-1) > 0):
+        for i in range(0, (len(Mat)-1)):
+            print('\nNombre: ', Mat[i][0], '\nTotal Peliculas: ', Mat[i][1])
+    else:
+        print('\nNingun personaje de MCU en la pila que aparezca en mas de 5 peliculas')
+
+    #C
+    print('\nCantidad de peliculas en las que aparece Black Widow')
+    print('\n', get_Mensaje_Black_Widow(get_Cantidad_Peliculas_En_La_Que_Aparece_Black_Widow(obj_Personajes_Marvel_Pila)))
+
+    #D
+    print('\nPersonajes que empiecen con C, D o G')
+    Vector = get_Nombres_Que_Empiezan_Con_C_D_And_G(obj_Personajes_Marvel_Pila)
+
+    if ((len(Vector)-1) > 0):
+        for i in range(0, (len(Vector)-1)):
+            print('\nNombre: ', Vector[i])
+    else:
+        print('\nNo hay personajes de MCU en la pila que empiecen con C, D o G')
+
+
+#-------------------------FIN#-------------------------
