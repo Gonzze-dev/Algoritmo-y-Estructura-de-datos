@@ -237,6 +237,7 @@ def ejercicio_14():
     while(not obj_Pila.pila_vacia()):
         print(obj_Pila.desapilar())
 
+ejercicio_14()
 #EJERCICIO 16
 
 def get_Interseccion_De_Pilas(obj_Pila_1, Obj_Pila_2):
