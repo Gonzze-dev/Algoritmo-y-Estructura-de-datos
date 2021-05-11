@@ -2,7 +2,6 @@ from cola import Cola
 from pila import Pila
 from random import randint
 
-
 #EJERCICIO 1
 def sacar_Vocales(palabra):
     obj_Cola = Cola()
@@ -238,39 +237,35 @@ def ejercicio_11():
 
 
 
-#EJERCICIO 16
+#EJERCICIO 12
 def unificar_Colas(obj_Cola_1, obj_Cola_2):
-    minimo = None
-    contador = None
+    cant_Veces_Que_Se_Movieron_Los_Elementos_De_La_Cola = None
 
     obj_Cola_Unificada = Cola()
-
-    if obj_Cola_1.en_frente() < obj_Cola_2.en_frente():
-        minimo = obj_Cola_1.en_frente()
-    else:
-        minimo = obj_Cola_2.en_frente()
 
     for i in range(0, obj_Cola_1.tamanio()):
         obj_Cola_Unificada.arribo(obj_Cola_1.mover_final())
     
     for i in range(0, obj_Cola_2.tamanio()):
-        contador = 1
+        cant_Veces_Que_Se_Movieron_Los_Elementos_De_La_Cola = 1
 
         while(obj_Cola_2.en_frente() > obj_Cola_Unificada.en_frente()):
             obj_Cola_Unificada.mover_final()
-            contador += 1
+            cant_Veces_Que_Se_Movieron_Los_Elementos_De_La_Cola += 1
 
         obj_Cola_Unificada.arribo(obj_Cola_2.mover_final())
         
-        for i in range(0, obj_Cola_Unificada.tamanio()-contador):
+        for i in range(0, obj_Cola_Unificada.tamanio()-cant_Veces_Que_Se_Movieron_Los_Elementos_De_La_Cola):
             obj_Cola_Unificada.mover_final()
         
     return obj_Cola_Unificada
         
-def ejercicio_16():
+def ejercicio_12():
     obj_Cola_1 = Cola()
     obj_Cola_2 = Cola()
     obj_Cola_Unificada = Cola()
+
+    Cola_Concatenada = '[ '
 
     vec_Num_1 = [1,3,5,6,8,9,11,12,13,16]
     vec_Num_2 = [0,0,0,0,1,1,2,3,6,7,10,13,14,15]
@@ -283,6 +278,7 @@ def ejercicio_16():
     
     obj_Cola_Unificada = unificar_Colas(obj_Cola_1, obj_Cola_2)
 
-    print(obj_Cola_Unificada.tamanio(), ' ', len(vec_Num_1), ' ', len(vec_Num_2))
-
-ejercicio_16()
+    for i in range(0, obj_Cola_Unificada.tamanio()):
+       Cola_Concatenada += str(obj_Cola_Unificada.mover_final()) + ' ,'
+    
+    print(Cola_Concatenada, ']')
