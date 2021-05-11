@@ -241,6 +241,7 @@ def ejercicio_11():
 #EJERCICIO 16
 def unificar_Colas(obj_Cola_1, obj_Cola_2):
     minimo = None
+    contador = None
 
     obj_Cola_Unificada = Cola()
 
@@ -253,21 +254,16 @@ def unificar_Colas(obj_Cola_1, obj_Cola_2):
         obj_Cola_Unificada.arribo(obj_Cola_1.mover_final())
     
     for i in range(0, obj_Cola_2.tamanio()):
-        
+        contador = 1
+
         while(obj_Cola_2.en_frente() > obj_Cola_Unificada.en_frente()):
             obj_Cola_Unificada.mover_final()
-            
-        obj_Cola_Unificada.arribo(obj_Cola_2.mover_final())
+            contador += 1
 
-        #agrege el if ya que como en la cola tengo el minimo, el numero a insertar 
-        # me quedaria al final de la cola, por lo que no quedaria la cola ordenada
-        if(obj_Cola_Unificada.en_frente() != minimo):         
-            while((obj_Cola_Unificada.en_frente() > minimo)):
-                obj_Cola_Unificada.mover_final()
-        else:
-            
-            for i in range(0, obj_Cola_Unificada.tamanio()-1):
-                obj_Cola_Unificada.mover_final()
+        obj_Cola_Unificada.arribo(obj_Cola_2.mover_final())
+        
+        for i in range(0, obj_Cola_Unificada.tamanio()-contador):
+            obj_Cola_Unificada.mover_final()
         
     return obj_Cola_Unificada
         
