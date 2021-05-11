@@ -236,4 +236,57 @@ def ejercicio_11():
 
     imprimir_Cola(obj_Cola)
 
-ejercicio_11()
+
+
+#EJERCICIO 16
+def unificar_Colas(obj_Cola_1, obj_Cola_2):
+    minimo = None
+
+    obj_Cola_Unificada = Cola()
+
+    if obj_Cola_1.en_frente() < obj_Cola_2.en_frente():
+        minimo = obj_Cola_1.en_frente()
+    else:
+        minimo = obj_Cola_2.en_frente()
+
+    for i in range(0, obj_Cola_1.tamanio()):
+        obj_Cola_Unificada.arribo(obj_Cola_1.mover_final())
+    
+    for i in range(0, obj_Cola_2.tamanio()):
+        
+        while(obj_Cola_2.en_frente() > obj_Cola_Unificada.en_frente()):
+            obj_Cola_Unificada.mover_final()
+            
+        obj_Cola_Unificada.arribo(obj_Cola_2.mover_final())
+
+        #agrege el if ya que como en la cola tengo el minimo, el numero a insertar 
+        # me quedaria al final de la cola, por lo que no quedaria la cola ordenada
+        if(obj_Cola_Unificada.en_frente() != minimo):         
+            while((obj_Cola_Unificada.en_frente() > minimo)):
+                obj_Cola_Unificada.mover_final()
+        else:
+            
+            for i in range(0, obj_Cola_Unificada.tamanio()-1):
+                obj_Cola_Unificada.mover_final()
+        
+    return obj_Cola_Unificada
+        
+def ejercicio_16():
+    obj_Cola_1 = Cola()
+    obj_Cola_2 = Cola()
+    obj_Cola_Unificada = Cola()
+
+    vec_Num_1 = [1,3,5,6,8,9,11,12,13,16]
+    vec_Num_2 = [0,0,0,0,1,1,2,3,6,7,10,13,14,15]
+
+    for i in range(0, len(vec_Num_1)):
+        obj_Cola_1.arribo(vec_Num_1[i])
+    
+    for i in range(0,len(vec_Num_2)):
+        obj_Cola_2.arribo(vec_Num_2[i])
+    
+    obj_Cola_Unificada = unificar_Colas(obj_Cola_1, obj_Cola_2)
+
+    print(obj_Cola_Unificada.tamanio(), ' ', len(vec_Num_1), ' ', len(vec_Num_2))
+
+ejercicio_16()
