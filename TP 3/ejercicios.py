@@ -282,3 +282,139 @@ def ejercicio_12():
        Cola_Concatenada += str(obj_Cola_Unificada.mover_final()) + ' ,'
     
     print(Cola_Concatenada, ']')
+
+#FUNCION GENERAL
+def get_Personajes_Concatenados_De_Un_Vector(vec_Personajes):
+    
+    personajes = '';
+
+    if (len(vec_Personajes) > 0):
+        for i in range (0, len(vec_Personajes)):
+            personajes += vec_Personajes[i] + '\n'
+    else:
+        personajes = 'No hay personajes cargados'
+    
+    return personajes
+
+def get_Personajes_Concatenados_De_Una_Matriz(mat_Personajes):
+    
+    personajes = '';
+
+    if (len(mat_Personajes) > 0):
+        for i in range (0, len(mat_Personajes)):
+            personajes += mat_Personajes[i][0] + ' ' + mat_Personajes[i][1] + '\n'
+    else:
+        personajes = 'No hay personajes cargados'
+    
+    return personajes
+
+def get_Mensaje_Si_Existe_Personaje_O_Super_Heroe(nombre_1, nombre_2):
+    
+    if(nombre_1 != None):
+        return 'El nombre de ' + nombre_2 + ' es: ' + nombre_1
+    else:
+        return nombre_2 + ' no esta en la cola' + nombre_1
+
+#A
+def get_Nombre_Personaje(obj_Cola, nombre_Super_Heroe):
+    nombre = None
+
+    for i in range(0, obj_Cola.tamanio()): #recorro todo para dejar la cola como esta originamente
+        
+        if (obj_Cola.en_frente()[1] == nombre_Super_Heroe):
+            nombre = obj_Cola.en_frente()[0]
+
+        obj_Cola.mover_final()
+
+    return nombre
+
+#B
+def  get_Super_Heroinas(obj_Cola):
+    
+    vec_Personajes_Femeninos = []
+
+    for i in range(0, obj_Cola.tamanio()):
+
+        if (obj_Cola.en_frente()[2] == 'F'):
+            vec_Personajes_Femeninos.append(obj_Cola.en_frente()[1])
+
+        obj_Cola.mover_final()
+
+    return vec_Personajes_Femeninos
+
+#C
+def  get_Personajes_Masculinos(obj_Cola):
+    
+    vec_Personajes_Masculinos = []
+
+    for i in range(0, obj_Cola.tamanio()):
+
+        if (obj_Cola.en_frente()[2] == 'M'):
+            vec_Personajes_Masculinos.append(obj_Cola.en_frente()[0])
+
+        obj_Cola.mover_final()
+
+    return vec_Personajes_Masculinos
+
+#D
+def get_Nombre_Del_Super_Heroe(obj_Cola, nombre_Personaje):
+    nombre = None
+
+    for i in range(0, obj_Cola.tamanio()): #recorro todo para dejar la cola como esta originamente
+        
+        if (obj_Cola.en_frente()[0] == nombre_Personaje):
+            nombre = obj_Cola.en_frente()[1]
+
+        obj_Cola.mover_final()
+    
+    return nombre
+
+#E
+def get_Nombres_Con_S(obj_Cola):
+    vec_Super_Heroes_O_Personajes_Con_S = []
+
+    for i in range(0, obj_Cola.tamanio()):
+
+        if(obj_Cola.en_frente()[0][0] == 'S' or obj_Cola.en_frente()[1][0] == 'S'):
+            vec_Super_Heroes_O_Personajes_Con_S.append([obj_Cola.en_frente()[0], obj_Cola.en_frente()[1]])
+
+        obj_Cola.mover_final();    
+
+    return vec_Super_Heroes_O_Personajes_Con_S
+
+
+#EJERCICIO 22
+def ejercicio_22():
+    obj_Cola = Cola()
+
+    array_Personajes_MCU = [
+                            ['Tony Stark', 'Iron Man', 'M'],
+                            ['Thor Odinson', 'Thor', 'M'],
+                            ['Carol Danvers','Capitana Marvel','F'],
+                            ['Steve Rogers', 'Capitan America', 'M'],
+                            ['Scott Lang', 'Hombre Hormiga', 'F'],
+                            ['Stephen Strange', 'Doctor Strange', 'M'],
+                           ]
+    
+    for i in range(0, len(array_Personajes_MCU)):
+        obj_Cola.arribo(array_Personajes_MCU[i])
+
+    print('NOMBRE DE CAPITANA MARVEL')
+    print(get_Mensaje_Si_Existe_Personaje_O_Super_Heroe(get_Nombre_Personaje(obj_Cola, 'Capitana Marvel'), 'Capitana Marvel'))
+
+    print('\nSUPER HEROINAS')
+    print(get_Personajes_Concatenados_De_Un_Vector(get_Super_Heroinas(obj_Cola)))
+
+    print('PERSONAJES MASCULINOS')
+    print(get_Personajes_Concatenados_De_Un_Vector(get_Personajes_Masculinos(obj_Cola)))
+
+    print('NOMBRE DE SUPER HEROE DE SCOTT LANG')
+    print(get_Mensaje_Si_Existe_Personaje_O_Super_Heroe(get_Nombre_Del_Super_Heroe(obj_Cola, 'Scott Lang'), 'Scott Lang'))
+
+    print('\nPERSONAJES Y SUPER HEROES CON INICIAL S')
+    print(get_Personajes_Concatenados_De_Una_Matriz(get_Nombres_Con_S(obj_Cola)))
+
+    print('NOMBRE DE SUPER HEROE DE CAROL DANVERS')
+    print(get_Mensaje_Si_Existe_Personaje_O_Super_Heroe(get_Nombre_Del_Super_Heroe(obj_Cola, 'Carol Danvers'), 'Carol Danvers'))
+
+ejercicio_22() 
