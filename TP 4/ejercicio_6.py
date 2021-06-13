@@ -52,9 +52,76 @@ def mostrarPersonasConMensionDeTrajeOArmaduraEnSuBiografia(objLista):
         infoPj = objLista.obtener_elemento(i)
 
         if ((infoPj['biografia'].find('traje') != -1) or (infoPj['biografia'].find('armadura') != -1)):
-            print("\n", i, "\n")
             print((infoPj['name'] + " " + str(infoPj['anio']) + " " + infoPj['casa'] + "\n"+ infoPj['biografia']))
+            print("\n")
+
+#PUNTO E
+def mostrarCasaYnombreDeSuperHeroeSegunUnaFechaMenorAlaDada(anio, objLista):
+    infoPj = None
+
+    for i in range(0, objLista.tamanio()):
+        infoPj = objLista.obtener_elemento(i)
+        
+        if (infoPj['anio'] < anio):
+            print(infoPj['name'] + " " + infoPj['casa'])
+
+#PUNTO F
+def mostrarCasaALaQuePertenecenNCantidadDePersonajes(conjuntoPjs, objLista):
+    infoPj = None
+    seEncontroAlmenosUnPj = False
+
+    for i in range(0, objLista.tamanio()):
+        infoPj = objLista.obtener_elemento(i)
+
+        if (infoPj['name'] in conjuntoPjs):
+            seEncontroAlmenosUnPj = True
+            print(infoPj['name'] + " " + infoPj['casa'])
+
+    if not seEncontroAlmenosUnPj:
+        print("Ningun Personaje del conjunto esta en la lista")
+
+def getLaInfoDeUnConjuntoDePersonajes(conjuntoPjs, objLista):
+    infoPj = None
+    mensaje = ""
+
+    for i in range(0, objLista.tamanio()):
+        infoPj = objLista.obtener_elemento(i)
+
+        if (infoPj['name'] in conjuntoPjs):
+            mensaje += ((infoPj['name'] + " " + str(infoPj['anio']) + " " + infoPj['casa'] + "\n"+ infoPj['biografia']) + "\n\n")
+
+    if (len(mensaje) > 0):
+        return mensaje
     
+    return "No se encontro ningun personaje"
+
+def getSuperHeroesQueTenganUnaDeLasLetrasDelConjuntoComoInicial(conjuntoLetras, objLista):
+    infoPj = None
+    mensaje = ""
+
+    for i in range(0, objLista.tamanio()):
+        infoPj = objLista.obtener_elemento(i)
+
+        if infoPj['name'][0] in conjuntoLetras:
+            mensaje += infoPj['name'] + "\n"
+    
+    if (len(mensaje) > 0):
+        return mensaje
+    
+    return "No se encontro ningun personaje que empeize con " + str(conjuntoLetras)
+
+def getCantidadDePersonajesDeCadaCasa(objLista):
+    cantidadPjMarvel = 0
+    cantidadPjDc = 0
+
+    for i in range(0, objLista.tamanio()):
+        if (objLista.obtener_elemento(i)['casa'] == "Marvel"):
+            cantidadPjMarvel += 1
+        else:
+            cantidadPjDc += 1
+    
+    return cantidadPjMarvel, cantidadPjDc
+
 def ejercicio6():
     matrizSuperHeroes = [
                         {'name' : "Iron Man",'anio' : 1963,'casa' : "Marvel",'biografia' : "Anthony Edward Stark conocido como Tony Stark, un multimillonario magnate empresarial estadounidense, playboy e ingenioso científico, quien sufrió una grave lesión en el pecho durante un secuestro. Cuando sus captores intentan forzarlo a construir un arma de destrucción masiva crea, en cambio, una armadura para salvar su vida y escapar del cautiverio."},
@@ -67,6 +134,9 @@ def ejercicio6():
                         {'name' : "Flash",'anio' : 1959,'casa' : "DC",'biografia' : "Bartholomew Henry Barry Allen es un científico asistente de la División de Ciencia Criminal y Forense del Departamento de Policía de Ciudad Central en 1956, conocido por ser lento y llegar siempre tarde a su trabajo, lo cual enojaba a su prometida Iris West. Una noche, le cayó un rayo , un rayo cayó en su laboratorio lleno de químicos que bañaron a Allen, creando un accidente que le otorgaría una súper velocidad e increíbles reflejos (también la capacidad de viajar en el tiempo y entre dimensiones). Con un traje rojo y el símbolo de un rayo (que recuerda al original Capitán Maravilla de Fawcett Comics), su novia lo nombró Flash, (ya que cuando era niño algo veloz mató a su madre y Barry dijo que fue como un flash) empezando así a combatir el crimen en Ciudad Central."},
                         {'name' : "Star-Lord",'anio' : 1976,'casa' : "Marvel",'biografia' : "supongamos que este tiene armadura, Cuando por accidente la nave de J'son cae en la Tierra, él es rescatado por Meredith Quill. Los dos forman una relación, mientras J'son hace reparaciones a su nave. Eventualmente, J'son se ve obligado a salir para regresar a casa y luchar en una guerra. Se va, sin saber que Meredith está embarazada de Peter Quill. 10 años más tarde, Meredith es asesinada cuando es atacada por dos soldados Badoon que han venido a matar a Peter y terminar la línea de sangre de J'son. Peter los mata con una pistola, encuentra la pistola de su padre por accidente, y escapa de su casa antes de que sea destruida por la nave Badoon. Los Badoon presumen que Peter es asesinado y se va. Peter es colocado en un orfanato y finalmente se une a la NASA. Finalmente se explicó que fue criado por su madre Lisa Chang, que era comandante de la NASA."},
                         ]
+
+    cantidadPjMarvel = 0
+    cantidadPjDc = 0
 
     listaPersonajesMarvelYDc = Lista()
 
@@ -85,5 +155,22 @@ def ejercicio6():
 
     print("\nPersonajes con la palabtra TRAJE o ARMADURA en su biografia")
     mostrarPersonasConMensionDeTrajeOArmaduraEnSuBiografia(listaPersonajesMarvelYDc)
+
+    print("\nPersonajes cuya fecha sea menor a 1963")
+    mostrarCasaYnombreDeSuperHeroeSegunUnaFechaMenorAlaDada(1963, listaPersonajesMarvelYDc)
+
+    print("\nCasa a la que pertenecen Capitana Marvel y la Mujer Maravilla")
+    mostrarCasaALaQuePertenecenNCantidadDePersonajes(("Capitana Marvel", "Mujer Maravilla"), listaPersonajesMarvelYDc)
+
+    print("\nMostrar toda informacion de Flash y Star-Lord")
+    print(getLaInfoDeUnConjuntoDePersonajes(("Flash", "Star-Lord"), listaPersonajesMarvelYDc))
+
+    print("\nPersonajes con inicial B, M y S")
+    print(getSuperHeroesQueTenganUnaDeLasLetrasDelConjuntoComoInicial(("B", "M", "S"), listaPersonajesMarvelYDc))
+
+    print("\nCantidad de pj en cada casa")
+    cantidadPjMarvel, cantidadPjDc = getCantidadDePersonajesDeCadaCasa(listaPersonajesMarvelYDc)
+    print("Cantidad de personajes en Marvel: ", cantidadPjMarvel, "\n",
+          "Cantidad de personajes en DC: ", cantidadPjDc)
 
 ejercicio6()
