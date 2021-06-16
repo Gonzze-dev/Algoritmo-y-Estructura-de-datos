@@ -9,7 +9,7 @@ def quicksort(vector, inicio, fin, criterio):
     ultimo = fin -1
     pivote = fin
     while(primero < ultimo):
-        while(__criterio(vector[primero], criterio) < __criterio(vector[pivote], criterio) and primero <= ultimo):
+        while(__criterio(vector[primero], criterio) <= __criterio(vector[pivote], criterio) and primero <= ultimo):
             primero += 1
         while(__criterio(vector[ultimo], criterio) > __criterio(vector[pivote], criterio) and ultimo >= primero):
             ultimo -= 1

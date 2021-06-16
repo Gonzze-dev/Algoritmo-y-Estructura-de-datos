@@ -17,7 +17,12 @@ for dato in datos:
     #al poner 'name' se me guarda y a la vez ordena en la lista por el campo ese campo, si pucieera como campo
     #edad, se me guarda y ordena por edad
 
-print(objLista.eliminar("juan", 'name'))
+objLista.barrido()
+
+for dato in datos:
+    objLista2.insertar(dato, 'dni')
+print()
+objLista2.barrido()
 #al poner en el metodo eliminar como criterio name, me va a buscar a uno de los dos juan, el primero que encuentre me lo elimina
 
 for dato in datos:
