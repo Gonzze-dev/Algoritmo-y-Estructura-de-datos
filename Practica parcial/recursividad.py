@@ -1,5 +1,3 @@
-from pila import Pila
-
 # EJERCICIO 19
 def funcion(n):
     if n == 1:
@@ -52,6 +50,7 @@ def euclidesMCD(numero_a, numero_b, resto=None):
         return numero_a
 
     if (numero_a % numero_b == 0):
+        print(resto)
         return resto
     else:
         return euclidesMCD(numero_b,numero_a % numero_b, numero_a % numero_b)
@@ -79,3 +78,9 @@ def recorrerMatriz(matriz, x=0, y=0):
         elif(y >= len(matriz[x])):
             y = 0
             recorrerMatriz(matriz, x+1, y)
+
+Pn = 54
+Qn = 24
+for i in range(1,200):
+    if (Pn % i == 0) and (Qn % i == 0):
+        print(i)
