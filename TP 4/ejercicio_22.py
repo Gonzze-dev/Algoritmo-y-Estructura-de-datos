@@ -105,7 +105,6 @@ sablesUsados = [
                 ]
 
 listaJedis = Lista()
-listaJedis2 = Lista()
 
 for datosJedi in datosJedis:
     listaJedis.insertar(datosJedi, 'nombre')
