@@ -1,7 +1,10 @@
+from TDA_Cola import Cola
+
 class Arbol(object):
     
-    def __init__(self, info=None):
+    def __init__(self, info=None, frecuencia = None):
         self.info = info
+        self.frecuencia = frecuencia
         self.der = None
         self.izq = None
 
@@ -102,5 +105,16 @@ class Arbol(object):
                     # raiz.info, raiz.nrr = aux.info, aux.nrr
         return x
 
+    def barrido_por_nivel_huff(self):
+        pendientes = Cola()
+        pendientes.arribo(self)
+        while(not pendientes.cola_vacia()):
+            nodo = pendientes.atencion()
+            print(nodo.info, nodo.frecuencia)
+            if(nodo.izq is not None):
+                pendientes.arribo(nodo.izq)
+            if(nodo.der is not None):
+                pendientes.arribo(nodo.der)
+    
 #parte de los ejercicios
     

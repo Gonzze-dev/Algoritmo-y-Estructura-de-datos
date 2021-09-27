@@ -1,21 +1,5 @@
 from TDA_Arbol_Binario_RyN_MOD2 import Arbol
 
-#def mostrarVillano(este_arbol):
-
-
-# pos = arbol.busqueda(padre)
-# if pos:
-#     if(not pos.izq):
-#         pos.izq = Arbol(hijo)
-#     else:
-#         if not pos.izq.der:
-#             pos.izq.der = Arbol(hijo)
-#         else:
-#             aux = pos.izq.der
-#             while not aux.der:
-#                 aux = aux.der
-#             aux = Arbol(hijo)
-
 #PUNTO B
 def mostrarVillano(arbol):
     if(arbol.info is not None):
