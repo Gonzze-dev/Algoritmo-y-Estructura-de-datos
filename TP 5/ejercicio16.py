@@ -87,4 +87,5 @@ def ejercicio7():
 
     print('\nEstado decodificado: ', estado_deco)
 
+print('hola')
 ejercicio7()
