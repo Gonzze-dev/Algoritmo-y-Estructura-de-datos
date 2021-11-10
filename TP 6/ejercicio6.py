@@ -2,9 +2,6 @@ from typing import List
 from grafos import Grafo
 from pila import Pila
 
-def ejercicio_6():
-    grafo_grafo_dioses = Grafo()
-
     # grafo_grafo_dioses.insertar_vertice('Themis');
     # grafo_grafo_dioses.insertar_vertice('Minemosyne');
     # grafo_grafo_dioses.insertar_vertice('Hyperion');
