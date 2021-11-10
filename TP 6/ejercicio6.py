@@ -278,8 +278,114 @@ def inicializar_grafo(grafo):
     grafo.insertar_arista(1, 'Penelopeia', 'Pan', data={'relacion': ['madre', 'hijo']})
     
     
+    grafo.insertar_arista(1, 'Themis', 'Minemosyne', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Themis', 'Hyperion', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Themis', 'Theia', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Themis', 'Crios', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Themis', 'Cronos', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Themis', 'Rhea', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Themis', 'Kdios', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Themis', 'Phoibe', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Themis', 'Iapetos', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Themis', 'Okeanos', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Themis', 'Tedds', data={'relacion': ['hermano']})
+    
+    grafo.insertar_arista(1, 'Minemosyne', 'Hyperion', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Minemosyne', 'Theia', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Minemosyne', 'Crios', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Minemosyne', 'Cronos', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Minemosyne', 'Rhea', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Minemosyne', 'Kdios', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Minemosyne', 'Phoibe', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Minemosyne', 'Iapetos', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Minemosyne', 'Okeanos', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Minemosyne', 'Tedds', data={'relacion': ['hermano']})
+    
+    grafo.insertar_arista(1, 'Hyperion', 'Crios', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Hyperion', 'Cronos', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Hyperion', 'Rhea', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Hyperion', 'Kdios', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Hyperion', 'Phoibe', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Hyperion', 'Iapetos', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Hyperion', 'Okeanos', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Hyperion', 'Tedds', data={'relacion': ['hermano']})
+    
+    grafo.insertar_arista(1, 'Theia', 'Cronos', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Theia', 'Rhea', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Theia', 'Kdios', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Theia', 'Phoibe', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Theia', 'Iapetos', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Theia', 'Okeanos', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Theia', 'Tedds', data={'relacion': ['hermano']})
+    
+    grafo.insertar_arista(1, 'Cronos', 'Rhea', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Cronos', 'Kdios', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Cronos', 'Phoibe', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Cronos', 'Iapetos', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Cronos', 'Okeanos', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Cronos', 'Tedds', data={'relacion': ['hermano']})
+    
+    grafo.insertar_arista(1, 'Kdios', 'Phoibe', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Kdios', 'Iapetos', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Kdios', 'Okeanos', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Kdios', 'Tedds', data={'relacion': ['hermano']})
+    
+    grafo.insertar_arista(1, 'Phoibe', 'Iapetos', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Phoibe', 'Okeanos', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Phoibe', 'Tedds', data={'relacion': ['hermano']})
+    
+    grafo.insertar_arista(1, 'Iapetos', 'Okeanos', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Iapetos', 'Tedds', data={'relacion': ['hermano']})
+    
+    grafo.insertar_arista(1, 'Okeanos', 'Tedds', data={'relacion': ['hermano']})
+    
+    grafo.insertar_arista(1, 'Helios', 'Eos', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Helios', 'Selene', data={'relacion': ['hermano']})
+    
+    grafo.insertar_arista(1, 'Eos', 'Selene', data={'relacion': ['hermano']})
     
     
+    grafo.insertar_arista(1, 'Prometheus', 'Epimetheus', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Prometheus', 'Atlas', data={'relacion': ['hermano']})
+    
+    grafo.insertar_arista(1, 'Epimetheus', 'Atlas', data={'relacion': ['hermano']})
+
+    
+    grafo.insertar_arista(1, 'Hades', 'Demeter', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Hades', 'Poseidon', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Hades', 'Hestia', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Hades', 'Hera', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Hades', 'Zeus', data={'relacion': ['hermano']})
+    
+
+    grafo.insertar_arista(1, 'Demeter', 'Poseidon', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Demeter', 'Hestia', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Demeter', 'Hera', data={'relacion': ['hermano']})
+    
+    grafo.insertar_arista(1, 'Poseidon', 'Hestia', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Poseidon', 'Hera', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Poseidon', 'Zeus', data={'relacion': ['hermano']})
+
+    grafo.insertar_arista(1, 'Hestia', 'Hera', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Hestia', 'Zeus', data={'relacion': ['hermano']})
+
+    
+    grafo.insertar_arista(1, 'Ares', 'Hephaistos', data={'relacion': ['hermano']})
+    
+    
+    grafo.insertar_arista(1, 'Apollo', 'Artemis', data={'relacion': ['hermano']})
+    
+    
+    grafo.insertar_arista(1, 'Phobos', 'Deimos', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Phobos', 'Eros', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Phobos', 'Himeros', data={'relacion': ['hermano']})
+    
+    grafo.insertar_arista(1, 'Deimos', 'Eros', data={'relacion': ['hermano']})
+    grafo.insertar_arista(1, 'Deimos', 'Himeros', data={'relacion': ['hermano']})
+    
+    grafo.insertar_arista(1, 'Eros', 'Himeros', data={'relacion': ['hermano']})
+
+
 #PUNTO A
 def cargar_descripcion(grafo):
     pausa = ''
@@ -487,42 +593,42 @@ def ejercicio_6():
     # print('CARGAR DESCRIPCION DE MENOS DE 20 PALABRAS')
     # cargar_descripcion(grafo_dioses)
     
-    print()
-    print('MOSTRAR LOS HIJOS DE UN DIOS DADO EL NOMBRE DE UNO')
-    mostrar_hijos(grafo_dioses, 'Cronos')
+    # print()
+    # print('MOSTRAR LOS HIJOS DE UN DIOS DADO EL NOMBRE DE UNO')
+    # mostrar_hijos(grafo_dioses, 'Cronos')
     
-    print()
-    print('MOSTRAR EL NOMBRE, PADRE, MADRE, HERMANOS Y HIJOS DE UN DIOS DADO EL NOMBRE DE UNO')
-    mostrar_nombre_padre_madre_hermanos_hijos_de_un_dios(grafo_dioses, 'Cronos')
+    # print()
+    # print('MOSTRAR EL NOMBRE, PADRE, MADRE, HERMANOS Y HIJOS DE UN DIOS DADO EL NOMBRE DE UNO')
+    # mostrar_nombre_padre_madre_hermanos_hijos_de_un_dios(grafo_dioses, 'Cronos')
     
-    print();
-    print('DETERMINAR SI HAY RELACION DIRECTA ENTRE DOS VERTICES' 
-            , 'CUALQUIERA Y SI LA HAY, MOSTRAR LA RELACION')
-    relacion_directa(grafo_dioses, 'Cronos', 'Rea');
+    # print();
+    # print('DETERMINAR SI HAY RELACION DIRECTA ENTRE DOS VERTICES' 
+    #         , 'CUALQUIERA Y SI LA HAY, MOSTRAR LA RELACION')
+    # relacion_directa(grafo_dioses, 'Cronos', 'Rea');
 
-    print()
-    print('DADO DOS DIOSES, DETERMINAR EL CAMINO MAS CORTO ENTRE ESTOS Y MOSTRARLO')
-    camino_mas_corto_entre_dos_vertices(grafo_dioses, 'Urano', 'Cronos')
+    # print()
+    # print('DADO DOS DIOSES, DETERMINAR EL CAMINO MAS CORTO ENTRE ESTOS Y MOSTRARLO')
+    # camino_mas_corto_entre_dos_vertices(grafo_dioses, 'Urano', 'Cronos')
     
-    print()
-    print('BARRIDO EN PROFUNDIDAD Y AMPLITUD DE DICHO GRAFO')
-    grafo_dioses.barrido_profundidad(0)
-    grafo_dioses.barrido_amplitud(0)
+    # print()
+    # print('BARRIDO EN PROFUNDIDAD Y AMPLITUD DE DICHO GRAFO')
+    # grafo_dioses.barrido_profundidad(0)
+    # grafo_dioses.barrido_amplitud(0)
     
-    print()
+    # print()
     
-    barrido_del_grafo_mostrando_la_relacion_x(grafo_dioses, 0, 'madre')
+    # barrido_del_grafo_mostrando_la_relacion_x(grafo_dioses, 0, 'madre')
     
-    print()
-    print('MOSTRAR LOS ANSESTROS DE UN DETERMINADO DIOS')
-    mostrar_acestros_de_un_dios(grafo_dioses, 'Persefone')
+    # print()
+    # print('MOSTRAR LOS ANSESTROS DE UN DETERMINADO DIOS')
+    # mostrar_acestros_de_un_dios(grafo_dioses, 'Persefone')
     
-    print()
-    print('MOSTRAR LOS NIETOS DE CRONOS')
-    mostrar_nietos_de_un_dios(grafo_dioses, 'Cronos')
+    # print()
+    # print('MOSTRAR LOS NIETOS DE CRONOS')
+    # mostrar_nietos_de_un_dios(grafo_dioses, 'Cronos')
     
-    print()
-    print('MOSTRAR LOS HIJOS DE THEIA')
-    mostrar_hijos(grafo_dioses, 'Theia')
+    # print()
+    # print('MOSTRAR LOS HIJOS DE THEIA')
+    # mostrar_hijos(grafo_dioses, 'Theia')
 
 ejercicio_6()
