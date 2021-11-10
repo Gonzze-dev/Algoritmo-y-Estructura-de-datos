@@ -25,11 +25,11 @@ def contar_superheroes(arbol):
     contador = 0
     if(arbol.info is not None):
         if(arbol.izq is not None):
-             contador += contar_superheroes(arbol.izq)
+            contador += contar_superheroes(arbol.izq)
         if(arbol.datos['esHeroe'] == True):
             contador += 1
         if(arbol.der is not None):
-             contador += contar_superheroes(arbol.der)
+            contador += contar_superheroes(arbol.der)
 
     return contador
 
