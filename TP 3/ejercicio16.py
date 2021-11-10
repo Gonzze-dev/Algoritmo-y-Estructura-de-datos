@@ -54,7 +54,7 @@ def ejercicio_16():
     
     #PUNTO G
     print()
-    for i in range(heapmax_documentos.tamanio):
+    while(not heapmax_documentos.vacio()):
         print(heapmax_documentos.atencion()[1])
 
 ejercicio_16()
